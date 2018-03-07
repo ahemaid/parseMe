@@ -1,0 +1,544 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 131072 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2643), pid=5531, tid=0xb6c7ab40
+#
+# JRE version: OpenJDK Runtime Environment (8.0_151-b12) (build 1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12)
+# Java VM: OpenJDK Server VM (25.151-b12 mixed mode linux-x86 )
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb6b08c00):  JavaThread "main" [_thread_in_vm, id=5552, stack(0xb6c2a000,0xb6c7b000)]
+
+Stack: [0xb6c2a000,0xb6c7b000],  sp=0xb6c77520,  free space=309k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x8d6834]
+V  [libjvm.so+0x3a7c76]
+V  [libjvm.so+0x7420c0]
+V  [libjvm.so+0x73c013]
+V  [libjvm.so+0x8d3264]
+V  [libjvm.so+0x6cdd63]
+V  [libjvm.so+0x6cdf7a]
+V  [libjvm.so+0x6ceb05]
+V  [libjvm.so+0x6cec5a]
+V  [libjvm.so+0x6cfc9a]
+V  [libjvm.so+0x6cfe8d]
+V  [libjvm.so+0x603d38]
+V  [libjvm.so+0x4e67aa]
+V  [libjvm.so+0x31a784]
+V  [libjvm.so+0x851e0b]
+V  [libjvm.so+0x8a0c7f]
+j  sun.misc.Unsafe.defineAnonymousClass(Ljava/lang/Class;[B[Ljava/lang/Object;)Ljava/lang/Class;+0
+j  java.lang.invoke.InvokerBytecodeGenerator.loadAndInitializeInvokerClass([B[Ljava/lang/Object;)Ljava/lang/Class;+8
+j  java.lang.invoke.InvokerBytecodeGenerator.loadMethod([B)Ljava/lang/invoke/MemberName;+6
+j  java.lang.invoke.InvokerBytecodeGenerator.generateCustomizedCode(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;+17
+j  java.lang.invoke.LambdaForm.compileToBytecode()Ljava/lang/invoke/MemberName;+65
+j  java.lang.invoke.DirectMethodHandle.makePreparedLambdaForm(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/LambdaForm;+638
+j  java.lang.invoke.DirectMethodHandle.preparedLambdaForm(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/LambdaForm;+17
+j  java.lang.invoke.DirectMethodHandle.preparedLambdaForm(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/LambdaForm;+151
+j  java.lang.invoke.DirectMethodHandle.make(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;+94
+j  java.lang.invoke.DirectMethodHandle.make(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;+16
+j  java.lang.invoke.DirectMethodHandle.make(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;+17
+j  java.lang.invoke.Invokers.basicInvoker()Ljava/lang/invoke/MethodHandle;+60
+j  java.lang.invoke.LambdaForm$NamedFunction.<init>(Ljava/lang/invoke/MethodType;)V+42
+j  java.lang.invoke.LambdaForm$Name.<init>(Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V+6
+j  java.lang.invoke.DelegatingMethodHandle.makeReinvokerForm(Ljava/lang/invoke/MethodHandle;ILjava/lang/Object;Ljava/lang/String;ZLjava/lang/invoke/LambdaForm$NamedFunction;Ljava/lang/invoke/LambdaForm$NamedFunction;)Ljava/lang/invoke/LambdaForm;+291
+j  java.lang.invoke.DelegatingMethodHandle.makeReinvokerForm(Ljava/lang/invoke/MethodHandle;ILjava/lang/Object;Ljava/lang/invoke/LambdaForm$NamedFunction;)Ljava/lang/invoke/LambdaForm;+54
+j  java.lang.invoke.DelegatingMethodHandle.chooseDelegatingForm(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/LambdaForm;+20
+j  java.lang.invoke.DelegatingMethodHandle.<init>(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;)V+3
+j  java.lang.invoke.MethodHandleImpl$IntrinsicMethodHandle.<init>(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)V+6
+j  java.lang.invoke.MethodHandleImpl.makeIntrinsic(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)Ljava/lang/invoke/MethodHandle;+16
+j  java.lang.invoke.MethodHandleImpl.makeArrays()[Ljava/lang/invoke/MethodHandle;+35
+j  java.lang.invoke.MethodHandleImpl.access$000()[Ljava/lang/invoke/MethodHandle;+0
+j  java.lang.invoke.MethodHandleImpl$Lazy.<clinit>()V+5
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+V  [libjvm.so+0x4ebfb8]
+V  [libjvm.so+0x4ec367]
+V  [libjvm.so+0x4ec7aa]
+V  [libjvm.so+0x62d508]
+V  [libjvm.so+0x63147a]
+V  [libjvm.so+0x633a38]
+V  [libjvm.so+0x513af7]
+j  java.lang.invoke.MethodHandleImpl.varargsArray(I)Ljava/lang/invoke/MethodHandle;+0
+j  java.lang.invoke.MethodHandleImpl.varargsArray(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;+121
+j  java.lang.invoke.MethodHandle.asCollector(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;+36
+j  java.lang.invoke.MethodHandleImpl$AsVarargsCollector.<init>(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)V+20
+j  java.lang.invoke.MethodHandleImpl$AsVarargsCollector.<init>(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)V+7
+j  java.lang.invoke.MethodHandleImpl.makeVarargsCollector(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;+43
+j  java.lang.invoke.MethodHandle.setVarargs(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;+26
+j  java.lang.invoke.MethodHandles$Lookup.getDirectMethodCommon(BLjava/lang/Class;Ljava/lang/invoke/MemberName;ZZLjava/lang/Class;)Ljava/lang/invoke/MethodHandle;+263
+j  java.lang.invoke.MethodHandles$Lookup.getDirectMethod(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;+8
+j  java.lang.invoke.MethodHandles$Lookup.findStatic(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;+23
+j  java.lang.invoke.CallSite.<clinit>()V+35
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+V  [libjvm.so+0x4ebfb8]
+V  [libjvm.so+0x4ec367]
+V  [libjvm.so+0x4ec7aa]
+V  [libjvm.so+0x62d508]
+V  [libjvm.so+0x63147a]
+V  [libjvm.so+0x633a38]
+V  [libjvm.so+0x513af7]
+j  java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/invoke/MemberName;+6
+j  java.lang.invoke.MethodHandleNatives.linkCallSite(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/invoke/MemberName;+45
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51e5f5]
+V  [libjvm.so+0x85130f]
+V  [libjvm.so+0x632916]
+V  [libjvm.so+0x63375c]
+V  [libjvm.so+0x633b58]
+V  [libjvm.so+0x5156a8]
+j  org.apache.jena.system.JenaSystem.<clinit>()V+22
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+V  [libjvm.so+0x4ebfb8]
+V  [libjvm.so+0x4ec367]
+V  [libjvm.so+0x4ec7aa]
+V  [libjvm.so+0x62d508]
+V  [libjvm.so+0x63147a]
+V  [libjvm.so+0x633a38]
+V  [libjvm.so+0x513af7]
+j  org.apache.jena.sparql.graph.GraphFactory.<clinit>()V+0
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+...<more frames>...
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.misc.Unsafe.defineAnonymousClass(Ljava/lang/Class;[B[Ljava/lang/Object;)Ljava/lang/Class;+0
+j  java.lang.invoke.InvokerBytecodeGenerator.loadAndInitializeInvokerClass([B[Ljava/lang/Object;)Ljava/lang/Class;+8
+j  java.lang.invoke.InvokerBytecodeGenerator.loadMethod([B)Ljava/lang/invoke/MemberName;+6
+j  java.lang.invoke.InvokerBytecodeGenerator.generateCustomizedCode(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;+17
+j  java.lang.invoke.LambdaForm.compileToBytecode()Ljava/lang/invoke/MemberName;+65
+j  java.lang.invoke.DirectMethodHandle.makePreparedLambdaForm(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/LambdaForm;+638
+j  java.lang.invoke.DirectMethodHandle.preparedLambdaForm(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/LambdaForm;+17
+j  java.lang.invoke.DirectMethodHandle.preparedLambdaForm(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/LambdaForm;+151
+j  java.lang.invoke.DirectMethodHandle.make(BLjava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;+94
+j  java.lang.invoke.DirectMethodHandle.make(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;+16
+j  java.lang.invoke.DirectMethodHandle.make(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;+17
+j  java.lang.invoke.Invokers.basicInvoker()Ljava/lang/invoke/MethodHandle;+60
+j  java.lang.invoke.LambdaForm$NamedFunction.<init>(Ljava/lang/invoke/MethodType;)V+42
+j  java.lang.invoke.LambdaForm$Name.<init>(Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V+6
+j  java.lang.invoke.DelegatingMethodHandle.makeReinvokerForm(Ljava/lang/invoke/MethodHandle;ILjava/lang/Object;Ljava/lang/String;ZLjava/lang/invoke/LambdaForm$NamedFunction;Ljava/lang/invoke/LambdaForm$NamedFunction;)Ljava/lang/invoke/LambdaForm;+291
+j  java.lang.invoke.DelegatingMethodHandle.makeReinvokerForm(Ljava/lang/invoke/MethodHandle;ILjava/lang/Object;Ljava/lang/invoke/LambdaForm$NamedFunction;)Ljava/lang/invoke/LambdaForm;+54
+j  java.lang.invoke.DelegatingMethodHandle.chooseDelegatingForm(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/LambdaForm;+20
+j  java.lang.invoke.DelegatingMethodHandle.<init>(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;)V+3
+j  java.lang.invoke.MethodHandleImpl$IntrinsicMethodHandle.<init>(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)V+6
+j  java.lang.invoke.MethodHandleImpl.makeIntrinsic(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)Ljava/lang/invoke/MethodHandle;+16
+j  java.lang.invoke.MethodHandleImpl.makeArrays()[Ljava/lang/invoke/MethodHandle;+35
+j  java.lang.invoke.MethodHandleImpl.access$000()[Ljava/lang/invoke/MethodHandle;+0
+j  java.lang.invoke.MethodHandleImpl$Lazy.<clinit>()V+5
+v  ~StubRoutines::call_stub
+j  java.lang.invoke.MethodHandleImpl.varargsArray(I)Ljava/lang/invoke/MethodHandle;+0
+j  java.lang.invoke.MethodHandleImpl.varargsArray(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;+121
+j  java.lang.invoke.MethodHandle.asCollector(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;+36
+j  java.lang.invoke.MethodHandleImpl$AsVarargsCollector.<init>(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)V+20
+j  java.lang.invoke.MethodHandleImpl$AsVarargsCollector.<init>(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)V+7
+j  java.lang.invoke.MethodHandleImpl.makeVarargsCollector(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;+43
+j  java.lang.invoke.MethodHandle.setVarargs(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;+26
+j  java.lang.invoke.MethodHandles$Lookup.getDirectMethodCommon(BLjava/lang/Class;Ljava/lang/invoke/MemberName;ZZLjava/lang/Class;)Ljava/lang/invoke/MethodHandle;+263
+j  java.lang.invoke.MethodHandles$Lookup.getDirectMethod(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;+8
+j  java.lang.invoke.MethodHandles$Lookup.findStatic(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;+23
+j  java.lang.invoke.CallSite.<clinit>()V+35
+v  ~StubRoutines::call_stub
+j  java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/invoke/MemberName;+6
+j  java.lang.invoke.MethodHandleNatives.linkCallSite(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/invoke/MemberName;+45
+v  ~StubRoutines::call_stub
+j  org.apache.jena.system.JenaSystem.<clinit>()V+22
+v  ~StubRoutines::call_stub
+j  org.apache.jena.sparql.graph.GraphFactory.<clinit>()V+0
+v  ~StubRoutines::call_stub
+j  test.app.errorsFinder(Ljava/lang/String;)V+244
+j  test.app.main([Ljava/lang/String;)V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0xb6b86400 JavaThread "Service Thread" daemon [_thread_blocked, id=5602, stack(0x96f5c000,0x96fad000)]
+  0xb6b83000 JavaThread "C1 CompilerThread1" daemon [_thread_blocked, id=5597, stack(0x96fad000,0x9702e000)]
+  0xb6b81800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=5593, stack(0x9702e000,0x970af000)]
+  0xb6b80000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5589, stack(0x970af000,0x97100000)]
+  0xb6b66000 JavaThread "Finalizer" daemon [_thread_blocked, id=5582, stack(0x97419000,0x9746a000)]
+  0xb6b63400 JavaThread "Reference Handler" daemon [_thread_blocked, id=5577, stack(0x9746a000,0x974bb000)]
+=>0xb6b08c00 JavaThread "main" [_thread_in_vm, id=5552, stack(0xb6c2a000,0xb6c7b000)]
+
+Other Threads:
+  0xb6b5ec00 VMThread [stack: 0x974bb000,0x9753c000] [id=5573]
+  0xb6b88000 WatcherThread [stack: 0x96edb000,0x96f5c000] [id=5611]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 3667K [0x97c00000, 0x98150000, 0x9cf50000)
+  eden space 4416K,  74% used [0x97c00000, 0x97f362a8, 0x98050000)
+  from space 512K,  73% used [0x980d0000, 0x9812ea38, 0x98150000)
+  to   space 512K,   0% used [0x98050000, 0x98050000, 0x980d0000)
+ tenured generation   total 10944K, used 0K [0x9cf50000, 0x9da00000, 0xa7600000)
+   the space 10944K,   0% used [0x9cf50000, 0x9cf50000, 0x9cf50200, 0x9da00000)
+ Metaspace       used 2340K, capacity 2454K, committed 2456K, reserved 4400K
+
+Card table byte_map: [0xa765e000,0xa76dc000] byte_map_base: 0xa71a0000
+
+Polling page: 0xb7fab000
+
+CodeCache: size=245760Kb used=925Kb max_used=925Kb free=244834Kb
+ bounds [0xa7a9c000, 0xa7cdc000, 0xb6a9c000]
+ total_blobs=348 nmethods=194 adapters=70
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 7.569 Thread 0xb6b83000 nmethod 184 0xa7b78ac8 code [0xa7b78be0, 0xa7b78d40]
+Event: 7.569 Thread 0xb6b83000  172       3       java.util.concurrent.ConcurrentHashMap::casTabAt (20 bytes)
+Event: 7.761 Thread 0xb6b83000 nmethod 172 0xa7b795c8 code [0xa7b796c0, 0xa7b797c0]
+Event: 7.761 Thread 0xb6b83000  188       3       java.util.AbstractList$Itr::checkForComodification (23 bytes)
+Event: 7.763 Thread 0xb6b83000 nmethod 188 0xa7b79848 code [0xa7b79960, 0xa7b79aac]
+Event: 7.763 Thread 0xb6b83000  187   !   3       java.util.AbstractList$Itr::next (45 bytes)
+Event: 7.763 Thread 0xb6b83000 nmethod 187 0xa7b79b88 code [0xa7b79d00, 0xa7b7a188]
+Event: 7.763 Thread 0xb6b83000  192       3       jdk.internal.org.objectweb.asm.Item::isEqualTo (354 bytes)
+Event: 7.764 Thread 0xb6b83000 nmethod 192 0xa7b7a448 code [0xa7b7a620, 0xa7b7b03c]
+Event: 7.764 Thread 0xb6b83000  195       3       jdk.internal.org.objectweb.asm.Frame::execute (2252 bytes)
+
+GC Heap History (2 events):
+Event: 2.860 GC heap before
+{Heap before GC invocations=0 (full 0):
+ def new generation   total 4928K, used 4396K [0x97c00000, 0x98150000, 0x9cf50000)
+  eden space 4416K,  99% used [0x97c00000, 0x9804b2d0, 0x98050000)
+  from space 512K,   0% used [0x98050000, 0x98050000, 0x980d0000)
+  to   space 512K,   0% used [0x980d0000, 0x980d0000, 0x98150000)
+ tenured generation   total 10944K, used 0K [0x9cf50000, 0x9da00000, 0xa7600000)
+   the space 10944K,   0% used [0x9cf50000, 0x9cf50000, 0x9cf50200, 0x9da00000)
+ Metaspace       used 1891K, capacity 2208K, committed 2328K, reserved 4400K
+Event: 3.576 GC heap after
+Heap after GC invocations=1 (full 0):
+ def new generation   total 4928K, used 378K [0x97c00000, 0x98150000, 0x9cf50000)
+  eden space 4416K,   0% used [0x97c00000, 0x97c00000, 0x98050000)
+  from space 512K,  73% used [0x980d0000, 0x9812ea38, 0x98150000)
+  to   space 512K,   0% used [0x98050000, 0x98050000, 0x980d0000)
+ tenured generation   total 10944K, used 0K [0x9cf50000, 0x9da00000, 0xa7600000)
+   the space 10944K,   0% used [0x9cf50000, 0x9cf50000, 0x9cf50200, 0x9da00000)
+ Metaspace       used 1891K, capacity 2208K, committed 2328K, reserved 4400K
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (2 events):
+Event: 0.696 Thread 0xb6b08c00 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x97c06e90) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jn
+Event: 0.696 Thread 0xb6b08c00 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x97c07160) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jni.cpp, line 4011]
+
+Events (10 events):
+Event: 6.988 loading class java/lang/invoke/MethodHandleImpl$AsVarargsCollector
+Event: 7.048 loading class java/lang/invoke/DelegatingMethodHandle
+Event: 7.051 loading class java/lang/invoke/DelegatingMethodHandle done
+Event: 7.051 loading class java/lang/invoke/MethodHandleImpl$AsVarargsCollector done
+Event: 7.068 loading class java/lang/invoke/WrongMethodTypeException
+Event: 7.068 loading class java/lang/invoke/WrongMethodTypeException done
+Event: 7.147 loading class java/lang/invoke/MethodHandleImpl$Lazy
+Event: 7.147 loading class java/lang/invoke/MethodHandleImpl$Lazy done
+Event: 7.149 loading class java/lang/invoke/MethodHandleImpl$IntrinsicMethodHandle
+Event: 7.152 loading class java/lang/invoke/MethodHandleImpl$IntrinsicMethodHandle done
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:01 6822321    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+08049000-0804a000 r--p 00000000 08:01 6822321    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+0804a000-0804b000 rw-p 00001000 08:01 6822321    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+09d35000-09d9d000 rw-p 00000000 00:00 0          [heap]
+96b00000-96b80000 rw-p 00000000 00:00 0 
+96b80000-96c00000 ---p 00000000 00:00 0 
+96d00000-96da4000 rw-p 00000000 00:00 0 
+96da4000-96e00000 ---p 00000000 00:00 0 
+96e19000-96e4d000 r--s 00295000 08:01 6296797    /home/ahmed/.m2/repository/org/apache/jena/jena-arq/3.6.0/jena-arq-3.6.0.jar
+96e4d000-96e52000 r--s 00030000 08:01 6560411    /home/ahmed/.m2/repository/org/apache/jena/jena-base/3.7.0-SNAPSHOT/jena-base-3.7.0-SNAPSHOT.jar
+96e52000-96e54000 r--s 0000c000 08:01 6296776    /home/ahmed/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar
+96e54000-96e5d000 r--s 0002d000 08:01 6296774    /home/ahmed/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar
+96e5d000-96e76000 r--s 00135000 08:01 6296769    /home/ahmed/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar
+96e76000-96e78000 r--s 00020000 08:01 6296762    /home/ahmed/.m2/repository/org/apache/jena/jena-iri/3.7.0-SNAPSHOT/jena-iri-3.7.0-SNAPSHOT.jar
+96e78000-96e92000 r--s 00141000 08:01 6296761    /home/ahmed/.m2/repository/org/apache/jena/jena-core/3.7.0-SNAPSHOT/jena-core-3.7.0-SNAPSHOT.jar
+96e92000-96ea5000 r--s 00346000 08:01 6692132    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/resources.jar
+96ea5000-96ec0000 r--s 001d6000 08:01 6690110    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/nashorn.jar
+96ec0000-96edb000 r--s 00394000 08:01 6690108    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/cldrdata.jar
+96edb000-96edc000 ---p 00000000 00:00 0 
+96edc000-96f5c000 rw-p 00000000 00:00 0 
+96f5c000-96f5f000 ---p 00000000 00:00 0 
+96f5f000-96fad000 rw-p 00000000 00:00 0 
+96fad000-96fb0000 ---p 00000000 00:00 0 
+96fb0000-9702e000 rw-p 00000000 00:00 0 
+9702e000-97031000 ---p 00000000 00:00 0 
+97031000-970af000 rw-p 00000000 00:00 0 
+970af000-970b2000 ---p 00000000 00:00 0 
+970b2000-97100000 rw-p 00000000 00:00 0 
+97100000-97300000 r--p 00000000 08:01 6690927    /usr/lib/locale/locale-archive
+97300000-973fb000 rw-p 00000000 00:00 0 
+973fb000-97400000 ---p 00000000 00:00 0 
+97401000-97406000 r--s 002f9000 08:01 6690851    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/charsets.jar
+97406000-97409000 r--s 00015000 08:01 6690105    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/jce.jar
+97409000-9740e000 r--s 0009a000 08:01 6692133    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/jsse.jar
+9740e000-97414000 r--s 0003a000 08:01 6690121    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunjce_provider.jar
+97414000-97416000 r--s 00008000 08:01 6690126    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunec.jar
+97416000-97419000 r--s 0000f000 08:01 6690107    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/icedtea-sound.jar
+97419000-9741c000 ---p 00000000 00:00 0 
+9741c000-9746a000 rw-p 00000000 00:00 0 
+9746a000-9746d000 ---p 00000000 00:00 0 
+9746d000-974bb000 rw-p 00000000 00:00 0 
+974bb000-974bc000 ---p 00000000 00:00 0 
+974bc000-9758a000 rw-p 00000000 00:00 0 
+9758a000-97759000 r--s 03c21000 08:01 6690103    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/rt.jar
+97759000-97a1a000 rw-p 00000000 00:00 0 
+97a3a000-97c00000 ---p 00000000 00:00 0 
+97c00000-98150000 rw-p 00000000 00:00 0 
+98150000-9cf50000 ---p 00000000 00:00 0 
+9cf50000-9da00000 rw-p 00000000 00:00 0 
+9da00000-a7600000 ---p 00000000 00:00 0 
+a7600000-a760a000 r--s 00116000 08:01 6690133    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/localedata.jar
+a760a000-a7610000 rw-p 00000000 00:00 0 
+a7610000-a765e000 ---p 00000000 00:00 0 
+a765e000-a7661000 rw-p 00000000 00:00 0 
+a7661000-a7687000 ---p 00000000 00:00 0 
+a7687000-a768d000 rw-p 00000000 00:00 0 
+a768d000-a76db000 ---p 00000000 00:00 0 
+a76db000-a76e5000 rw-p 00000000 00:00 0 
+a76e5000-a7a9c000 ---p 00000000 00:00 0 
+a7a9c000-a7cdc000 rwxp 00000000 00:00 0 
+a7cdc000-b6a9c000 ---p 00000000 00:00 0 
+b6a9c000-b6aa7000 r-xp 00000000 08:01 4980833    /lib/i386-linux-gnu/libnss_files-2.23.so
+b6aa7000-b6aa8000 r--p 0000a000 08:01 4980833    /lib/i386-linux-gnu/libnss_files-2.23.so
+b6aa8000-b6aa9000 rw-p 0000b000 08:01 4980833    /lib/i386-linux-gnu/libnss_files-2.23.so
+b6aa9000-b6aaf000 rw-p 00000000 00:00 0 
+b6aaf000-b6aba000 r-xp 00000000 08:01 4982240    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b6aba000-b6abb000 r--p 0000a000 08:01 4982240    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b6abb000-b6abc000 rw-p 0000b000 08:01 4982240    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b6abc000-b6ad3000 r-xp 00000000 08:01 4980751    /lib/i386-linux-gnu/libnsl-2.23.so
+b6ad3000-b6ad4000 r--p 00016000 08:01 4980751    /lib/i386-linux-gnu/libnsl-2.23.so
+b6ad4000-b6ad5000 rw-p 00017000 08:01 4980751    /lib/i386-linux-gnu/libnsl-2.23.so
+b6ad5000-b6ad7000 rw-p 00000000 00:00 0 
+b6ad7000-b6afe000 r-xp 00000000 08:01 6691112    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b6afe000-b6aff000 r--p 00026000 08:01 6691112    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b6aff000-b6b00000 rw-p 00027000 08:01 6691112    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b6b00000-b6bfb000 rw-p 00000000 00:00 0 
+b6bfb000-b6c00000 ---p 00000000 00:00 0 
+b6c00000-b6c01000 r--s 0000a000 08:01 6690409    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/jaccess.jar
+b6c01000-b6c09000 r-xp 00000000 08:01 4980828    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b6c09000-b6c0a000 r--p 00007000 08:01 4980828    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b6c0a000-b6c0b000 rw-p 00008000 08:01 4980828    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b6c0b000-b6c0f000 r--s 00037000 08:01 6690284    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunpkcs11.jar
+b6c0f000-b6c17000 r-xp 00000000 08:01 6691544    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b6c17000-b6c18000 r--p 00007000 08:01 6691544    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b6c18000-b6c19000 rw-p 00008000 08:01 6691544    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b6c19000-b6c21000 rw-s 00000000 08:01 2365350    /tmp/hsperfdata_ahmed/5531
+b6c21000-b6c28000 r-xp 00000000 08:01 4982287    /lib/i386-linux-gnu/librt-2.23.so
+b6c28000-b6c29000 r--p 00006000 08:01 4982287    /lib/i386-linux-gnu/librt-2.23.so
+b6c29000-b6c2a000 rw-p 00007000 08:01 4982287    /lib/i386-linux-gnu/librt-2.23.so
+b6c2a000-b6c2d000 ---p 00000000 00:00 0 
+b6c2d000-b6c7b000 rw-p 00000000 00:00 0 
+b6c7b000-b6c97000 r-xp 00000000 08:01 4982308    /lib/i386-linux-gnu/libgcc_s.so.1
+b6c97000-b6c98000 rw-p 0001b000 08:01 4982308    /lib/i386-linux-gnu/libgcc_s.so.1
+b6c98000-b6ceb000 r-xp 00000000 08:01 4980741    /lib/i386-linux-gnu/libm-2.23.so
+b6ceb000-b6cec000 r--p 00052000 08:01 4980741    /lib/i386-linux-gnu/libm-2.23.so
+b6cec000-b6ced000 rw-p 00053000 08:01 4980741    /lib/i386-linux-gnu/libm-2.23.so
+b6ced000-b6e5a000 r-xp 00000000 08:01 6685071    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b6e5a000-b6e5b000 ---p 0016d000 08:01 6685071    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b6e5b000-b6e60000 r--p 0016d000 08:01 6685071    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b6e60000-b6e61000 rw-p 00172000 08:01 6685071    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b6e61000-b6e64000 rw-p 00000000 00:00 0 
+b6e64000-b7935000 r-xp 00000000 08:01 6691324    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b7935000-b797b000 r--p 00ad0000 08:01 6691324    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b797b000-b7992000 rw-p 00b16000 08:01 6691324    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b7992000-b7db2000 rw-p 00000000 00:00 0 
+b7db2000-b7dcb000 r-xp 00000000 08:01 4980761    /lib/i386-linux-gnu/libpthread-2.23.so
+b7dcb000-b7dcc000 r--p 00018000 08:01 4980761    /lib/i386-linux-gnu/libpthread-2.23.so
+b7dcc000-b7dcd000 rw-p 00019000 08:01 4980761    /lib/i386-linux-gnu/libpthread-2.23.so
+b7dcd000-b7dcf000 rw-p 00000000 00:00 0 
+b7dcf000-b7dd2000 r-xp 00000000 08:01 4980822    /lib/i386-linux-gnu/libdl-2.23.so
+b7dd2000-b7dd3000 r--p 00002000 08:01 4980822    /lib/i386-linux-gnu/libdl-2.23.so
+b7dd3000-b7dd4000 rw-p 00003000 08:01 4980822    /lib/i386-linux-gnu/libdl-2.23.so
+b7dd4000-b7dd5000 rw-p 00000000 00:00 0 
+b7dd5000-b7dee000 r-xp 00000000 08:01 4982459    /lib/i386-linux-gnu/libz.so.1.2.8
+b7dee000-b7def000 r--p 00018000 08:01 4982459    /lib/i386-linux-gnu/libz.so.1.2.8
+b7def000-b7df0000 rw-p 00019000 08:01 4982459    /lib/i386-linux-gnu/libz.so.1.2.8
+b7df0000-b7fa0000 r-xp 00000000 08:01 4980820    /lib/i386-linux-gnu/libc-2.23.so
+b7fa0000-b7fa2000 r--p 001af000 08:01 4980820    /lib/i386-linux-gnu/libc-2.23.so
+b7fa2000-b7fa3000 rw-p 001b1000 08:01 4980820    /lib/i386-linux-gnu/libc-2.23.so
+b7fa3000-b7fa6000 rw-p 00000000 00:00 0 
+b7fa6000-b7fa7000 r--s 00010000 08:01 6690109    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/zipfs.jar
+b7fa7000-b7fa9000 r--s 00001000 08:01 6690421    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/dnsns.jar
+b7fa9000-b7faa000 r--p 002d4000 08:01 6690927    /usr/lib/locale/locale-archive
+b7faa000-b7fab000 rw-p 00000000 00:00 0 
+b7fab000-b7fac000 r--p 00000000 00:00 0 
+b7fac000-b7fba000 r-xp 00000000 08:01 6691533    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b7fba000-b7fbb000 r--p 0000d000 08:01 6691533    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b7fbb000-b7fbc000 rw-p 0000e000 08:01 6691533    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b7fbc000-b7fc9000 r-xp 00000000 08:01 6816054    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b7fc9000-b7fca000 r--p 0000c000 08:01 6816054    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b7fca000-b7fcb000 rw-p 0000d000 08:01 6816054    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b7fcb000-b7fcc000 rw-p 00000000 00:00 0 
+b7fcc000-b7fcf000 r--p 00000000 00:00 0          [vvar]
+b7fcf000-b7fd1000 r-xp 00000000 00:00 0          [vdso]
+b7fd1000-b7ff4000 r-xp 00000000 08:01 4980754    /lib/i386-linux-gnu/ld-2.23.so
+b7ff4000-b7ff5000 r--p 00022000 08:01 4980754    /lib/i386-linux-gnu/ld-2.23.so
+b7ff5000-b7ff6000 rw-p 00023000 08:01 4980754    /lib/i386-linux-gnu/ld-2.23.so
+bff0d000-bff2f000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: test.app
+java_class_path (initial): /usr/lib/jvm/java-8-openjdk-i386/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunjce_provider.jar:/home/ahmed/eclipse-workspace/parser/target/classes:/home/ahmed/.m2/repository/org/apache/jena/jena-core/3.7.0-SNAPSHOT/jena-core-3.7.0-SNAPSHOT.jar:/home/ahmed/.m2/repository/org/apache/jena/jena-iri/3.7.0-SNAPSHOT/jena-iri-3.7.0-SNAPSHOT.jar:/home/ahmed/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/home/ahmed/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/home/ahmed/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/home/ahmed/.m2/repository/org/apache/jena/jena-base/3.7.0-SNAPSHOT/jena-base-3.7.0-SNAPSHOT.jar:/home/ahmed/.m2/repository/org/apache/jena/jena-arq/3.6.0/jena-arq-3.6.0.jar:/home/ahmed/.m2/repository/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar:/home/ahmed/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/home/ahmed/.m2/repository/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar:/home/ahmed/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/ahmed/.m2/repository/com/github/andrewoma/dexx/collection/0.7/collection-0.7.jar:/home/ahmed/.m2/repository/org/apache/jena/jena-shaded-guava/3.7.0-SNAPSH
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/ahmed/bin:/home/ahmed/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+LD_LIBRARY_PATH=/usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server:/usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x8d7370], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x8d7370], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x73d000], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.3 LTS"
+
+uname:Linux 4.13.0-36-generic #40~16.04.1-Ubuntu SMP Fri Feb 16 23:26:51 UTC 2018 i686
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 7612, NOFILE 1048576, AS infinity
+load average:4.51 1.74 1.05
+
+/proc/meminfo:
+MemTotal:        1022164 kB
+MemFree:           49624 kB
+MemAvailable:          0 kB
+Buffers:             116 kB
+Cached:            18156 kB
+SwapCached:          108 kB
+Active:           435348 kB
+Inactive:         435724 kB
+Active(anon):     427492 kB
+Inactive(anon):   427548 kB
+Active(file):       7856 kB
+Inactive(file):     8176 kB
+Unevictable:          80 kB
+Mlocked:              80 kB
+HighTotal:        139208 kB
+HighFree:            132 kB
+LowTotal:         882956 kB
+LowFree:           49492 kB
+SwapTotal:       1045500 kB
+SwapFree:              0 kB
+Dirty:                40 kB
+Writeback:           184 kB
+AnonPages:        852960 kB
+Mapped:            12316 kB
+Shmem:              2072 kB
+Slab:              31052 kB
+SReclaimable:      14176 kB
+SUnreclaim:        16876 kB
+KernelStack:        5000 kB
+PageTables:        14652 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1556580 kB
+Committed_AS:    6339708 kB
+VmallocTotal:     122880 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       30712 kB
+DirectMap2M:      878592 kB
+
+
+CPU:total 1 (initial active 1) (1 cores per cpu, 1 threads per core) family 6 model 158 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, tsc, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 158
+model name	: Intel(R) Core(TM) i5-7440HQ CPU @ 2.80GHz
+stepping	: 9
+microcode	: 0xffffffff
+cpu MHz		: 2807.998
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 21
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc xtopology cpuid pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch retpoline rsb_ctxsw fsgsbase bmi1 hle avx2 smep bmi2 erms rtm mpx rdseed adx smap clflushopt xsaveopt xsavec xsaves
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 5615.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 1022164k(50568k free), swap 1045500k(0k free)
+
+vm_info: OpenJDK Server VM (25.151-b12) for linux-x86 JRE (1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12), built on Oct 27 2017 22:05:04 by "buildd" with gcc 5.4.0 20160609
+
+time: Mon Mar  5 07:45:43 2018
+elapsed time: 8 seconds (0d 0h 0m 8s)
+
