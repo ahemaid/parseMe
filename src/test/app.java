@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,8 +39,6 @@ import org.apache.jena.riot.system.StreamRDFWriter;
 import org.apache.jena.shared.JenaException;
 import org.apache.jena.sparql.graph.GraphFactory;
 import org.hamcrest.Matcher;
-
-import com.github.andrewoma.dexx.collection.ArrayList;
 
 public class app {
 	int errNum = 1;
@@ -118,7 +115,7 @@ public class app {
 			//System.out.print(Arrays.toString(nums));
 			int lineNum = Integer.parseInt(nums[1]);
 			int columnNum = Integer.parseInt(nums[2]);
-			System.out.print("Syntax Error "+ errNum++ +" [ Line "+ lineNum +" Col " + columnNum);
+			System.out.print("Syntax Error "+ errNum++ +" [ Line "+ lineNum +" , Col " + columnNum);
 			errorMessage = e.getMessage().split("]")[1];
 			System.out.print(" ] Error Message "+ errorMessage +"\n");
 			if(modifiedText == "")
@@ -173,6 +170,31 @@ public class app {
 				// callback to check if there are other errors 
 				errorsFinder(modifiedText);
 
+			}
+			else if (errorMessage.contains("Unrecognized directive: ")) {
+				String catchedError = errorMessage.split("directive: ")[1];  
+				modifiedText = modifiedText.replace(catchedError,"prefix");
+				errorsFinder(modifiedText);
+
+			}else if (errorMessage.contains("@prefix or PREFIX requires a prefix with no suffix")) {
+				modifiedText = removeLine(modifiedText, errorMessage.split("PREFIXED_NAME:")[1], -1);
+				errorsFinder(modifiedText);			
+			}
+			else if (errorMessage.contains("@prefix or PREFIX requires a prefix  (found '[IRI:")) {
+				modifiedText = removeLine(modifiedText, errorMessage.split("IRI:")[1], -1);
+				errorsFinder(modifiedText);
+			}
+			else if (errorMessage.contains("@prefix or PREFIX requires a prefix (found '[KEYWORD:")) {
+				modifiedText = removeLine(modifiedText, errorMessage.split("KEYWORD:")[1], -1);
+				errorsFinder(modifiedText);
+			}
+			else if (errorMessage.contains("@prefix requires an IRI (found '")) {
+				modifiedText = removeLine(modifiedText, "", lineNum );
+				errorsFinder(modifiedText);
+			}			
+			else if (errorMessage.contains("@base requires an IRI (found '")) {
+				modifiedText = removeLine(modifiedText, "", lineNum + 1 );
+				errorsFinder(modifiedText);
 			}
 			else{
 				System.out.print(e.getMessage());
@@ -275,6 +297,39 @@ public class app {
 			}
 		}
 		return temp;
+	}
+	public String removeLine(String text, String toBeRemoved, int lineNumber) {
+
+		String beforeText ="", afterText = "";
+		int lineCount = 1; 
+		Scanner scanner = new Scanner(text);
+
+		while(scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			lineCount++;
+			if(toBeRemoved != "")
+				if(line.contains(toBeRemoved)) {
+					beforeText += "\n";
+					break;
+				}
+				else
+					beforeText += line+"\n";
+			if(lineNumber != -1)
+				if(lineCount == lineNumber) {
+					beforeText += "\n";
+					break;
+				}
+				else
+					beforeText += line+"\n";
+				
+		}
+		while(scanner.hasNextLine()) {
+
+			afterText += scanner.nextLine()+"\n";
+		}
+		scanner.close();
+
+		return beforeText+" "+afterText;
 	}
 
 	public static void main(String[] args) {
