@@ -9,13 +9,19 @@ mv:ElectricVehicleBattery
 	a rdfs:Class , owl:Class ;
 	rdfs:comment "A battery used to power the propulsion of a battery electric vehicle." ;
 	rdfs:label "Electric Vehicle Battery"@en , "Traktionsbatterie"@de ;
-	rdfs:altlabel "Traction battery"@en , "Traktionsakku"@de ;
-	skos:hiddenLabel "EVB"@en, "ntriebsbatterie"@de.	
+		rdfs:altlabel ("Traction battery"  "Traktionsakku") ;
+		skos:hiddenLabel "EVB"@en, "ntriebsbatterie"@de.	
+
+mv:DeepCyc4 rdfs:comment "jjj"^xsd:integer .  
+
+mv:DeepCyc  rdfs:label ("jjj" ) . 
+	
+
 mv:DeepCycle
-	rdfs:subClassOf mv:LeadAcid ;
+	rdfs:subClassOf mv:LeadAcid ; 
 	rdfs:comment "A lead-acid battery designed to be regularly deeply discharged using most of its capacity." ;
 	rdfs:label "Deep-Cycle Battery"@en , "****Batterie"@de
-	
+
 mv1:FloodedLeadAcid
 	rdfs:subClassOf
 mv:LeadAcid ;

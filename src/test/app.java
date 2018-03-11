@@ -120,6 +120,11 @@ public class app {
 			System.out.print(" ] Error Message "+ errorMessage +"\n");
 			if(modifiedText == "")
 				modifiedText = text;
+			
+			// From the beginning, add a dummy prefix 
+			if(!modifiedText.contains("@prefix dummyPrefix:<http://www.exmaple.com>  \n")) {
+				modifiedText = "@prefix dummyPrefix:<http://www.exmaple.com>  \n" + modifiedText;
+			}
 			// first case
 			if(errorMessage.contains("Triples not terminated by DOT")) {
 				int lines = 1;
@@ -150,10 +155,7 @@ public class app {
 			}else if(errorMessage.contains("Undefined prefix:")) {
 				String misMatchedPrefix = "";
 				misMatchedPrefix = errorMessage.split("prefix: ")[1];
-				// add a dummy prefix 
-				if(!modifiedText.contains("@prefix dummyPrefix:<http://www.exmaple.com>  \n")) {
-					modifiedText = "@prefix dummyPrefix:<http://www.exmaple.com>  \n" + modifiedText;
-				}
+
 				modifiedText = modifiedText.replace(misMatchedPrefix,"dummyPrefix");
 				errorsFinder(modifiedText);
 			}else if (errorMessage.contains("Bad character in IRI (space):")) {
@@ -193,96 +195,33 @@ public class app {
 				errorsFinder(modifiedText);
 			}			
 			else if (errorMessage.contains("@base requires an IRI (found '")) {
-				modifiedText = removeLine(modifiedText, "", lineNum + 1 );
+				modifiedText = removeLine(modifiedText, "", lineNum + 1);
 				errorsFinder(modifiedText);
+			}
+			else if (errorMessage.contains("Expected IRI for predicate: got: [")) {
+				String catchedError =  errorMessage.split("\\[")[1].split(":")[1]; 
+				modifiedText = modifyLine(modifiedText, catchedError , "left");
+				errorsFinder(modifiedText);
+			}
+			else if (errorMessage.contains("Out of place: ")) {
+				modifiedText = removeLine(modifiedText, "", lineNum + 2  );
+				Scanner scanner = new Scanner(modifiedText);
+				int counter = 1;
+				while(scanner.hasNextLine()) {
+
+					System.out.print("line "+counter ++ +" "+scanner.nextLine()+"\n" );
+
+				}
+				scanner.close();
+				//System.out.print(modifiedText);
+				//errorsFinder(modifiedText);
 			}
 			else{
 				System.out.print(e.getMessage());
 			}
-
-
-
-
 		}catch(Exception e) {
 			System.out.print(e.getMessage());
-
 		}
-
-
-		// 
-		//
-		//       Model model = RDFDataMgr.loadModel(filename) ;
-		//       model.read(filename) ;
-		//
-		//        System.out.println() ;
-		//        System.out.println("#### ---- Write as NTriple") ;
-		//        System.out.println() ;
-		//        // This will be the default graph of the dataset written.
-		//        RDFDataMgr.write(System.out, model, Lang.NT) ;
-		//
-		//
-		// 
-		// System.out.println("Done");
-
-		//
-		//        // Create a PipedRDFStream to accept input and a PipedRDFIterator to
-		//        // consume it
-		//        // You can optionally supply a buffer size here for the
-		//        // PipedRDFIterator, see the documentation for details about recommended
-		//        // buffer sizes
-		//        PipedRDFIterator<Triple> iter = new PipedRDFIterator<>();
-		//        final PipedRDFStream<Triple> inputStream = new PipedTriplesStream(iter);
-		//
-		/*//        // PipedRDFStream and PipedRDFIterator need to be on different threads
-       ExecutorService executor = Executors.newSingleThreadExecutor();
-       Graph graph = GraphFactory.createGraphMem();
-       final String content = text ;
-       InputStream input = new ByteArrayInputStream(text.getBytes(StandardCharsets.UTF_8));
-
-       // Create a runnable for our parser thread
-       Runnable parser = new Runnable() {
-
-           @Override
-           public void run() {
-           // try{
-               // Call the parsing process.
-               //RDFDataMgr.parse(inputStream, filename);
-               RDFParser.create().lang(Lang.TTL).source(input).parse(graph);
-//            } catch (RiotException e){
-//                System.out.println("ijmhkljhgfgjkdhsdfhshdgshj,hjklghklghhjkfkfj");
-//
-//                System.out.println(e.getMessage());
-//
-//            }
-           }
-       };
-
-//        // Start the parser on another thread
-       executor.submit(parser);
-       //RDFDataMgr.write(System.out, graph,  Lang.TTL) ;
-       System.out.print("I am here");
-       System.out.print("\ngraph size"+graph.size());
-
-       StreamRDFWriter.write(System.out, graph, Lang.NT) ;
-
-       RDFDataMgr.write(System.out, graph, Lang.TTL) ;*/
-
-		//
-		//        // We will consume the input on the main thread here
-		//
-		//        // We can now iterate over data as it is parsed, parsing only runs as
-		//        // far ahead of our consumption as the buffer size allows
-		//        while (iter.hasNext()) {
-		//            Triple next = iter.next();
-		//            // Do something with each triple
-		//            System.out.println("Subject:  "+next.getSubject());
-		//            System.out.println("Object:  "+next.getObject());
-		//            System.out.println("Predicate:  "+next.getPredicate());
-		//            System.out.println("\n");
-		//        }
-		//    
-		//        CollectorStreamTriples inputStream1 = new CollectorStreamTriples();
-		//        //RDFParser.source(filename).parse(inputStream1);
 
 
 	}
@@ -322,6 +261,35 @@ public class app {
 				else
 					beforeText += line+"\n";
 				
+		}
+		while(scanner.hasNextLine()) {
+
+			afterText += scanner.nextLine()+"\n";
+		}
+		scanner.close();
+
+		return beforeText+" "+afterText;
+	}
+	
+	public String modifyLine(String text, String errorString, String direction) {
+
+		String beforeText ="", afterText = "";
+		int lineCount = 1; 
+		Scanner scanner = new Scanner(text);
+
+		while(scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			lineCount++;
+
+			if( direction == "left")
+				if(line.contains(errorString)) {
+					int position = line.indexOf(errorString);
+					line = line.substring(0,position -1  ) +" rdfs:Dummy " + line.substring(position  - 1, line.length() -1);
+					beforeText += line + "\n";
+					break;
+				}
+				else
+					beforeText += line +"\n";	
 		}
 		while(scanner.hasNextLine()) {
 
